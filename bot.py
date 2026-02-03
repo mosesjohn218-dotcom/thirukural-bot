@@ -1,21 +1,10 @@
 import json
 import os
-import requests
 from telegram.ext import ApplicationBuilder, MessageHandler, filters
 
 TOKEN = os.getenv("TOKEN")
 
-DATA_FILE = "kurals.json"
-URL = "https://raw.githubusercontent.com/kalviumcommunity/thirukkural-dataset/main/kurals.json"
-
-# Download dataset once
-if not os.path.exists(DATA_FILE):
-    print("Downloading kurals...")
-    r = requests.get(URL)
-    with open(DATA_FILE, "wb") as f:
-        f.write(r.content)
-
-with open(DATA_FILE, "r", encoding="utf-8") as f:
+with open("kurals.json", "r", encoding="utf-8") as f:
     kurals = json.load(f)
 
 async def reply(update, context):
@@ -23,7 +12,7 @@ async def reply(update, context):
 
     if text in kurals:
         k = kurals[text]
-        msg = f"Kural {text}\n\nTamil:\n{k['tamil']}\n\nEnglish:\n{k['english']}"
+        msg = f"Kural {text}\n\nTamil:\n{k['ta']}\n\nEnglish:\n{k['en']}"
         await update.message.reply_text(msg)
         return
 
