@@ -1,7 +1,7 @@
 import telegram
 from telegram.ext import ApplicationBuilder, MessageHandler, filters
 
-TOKEN = "YOUR_TOKEN_HERE"
+TOKEN = "8263308419:AAFDuAkJ7PB6WNosUJb-ogshnkHc3_uW0B4"
 
 async def reply(update, context):
     text = update.message.text
