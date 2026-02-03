@@ -1,22 +1,18 @@
+import json
 import os
-import requests
 from telegram.ext import ApplicationBuilder, MessageHandler, filters
 
 TOKEN = os.getenv("TOKEN")
 
-print("Loading kurals...")
-kurals = requests.get(
-    "https://raw.githubusercontent.com/selva86/datasets/master/thirukkural.json"
-).json()
-
-print("Loaded:", len(kurals))
+with open("kurals.json", "r", encoding="utf-8") as f:
+    kurals = json.load(f)
 
 async def reply(update, context):
     text = update.message.text.strip()
 
     if text in kurals:
         k = kurals[text]
-        msg = f"Kural {text}\n\nTamil:\n{k['Tamil']}\n\nEnglish:\n{k['English']}"
+        msg = f"Kural {text}\n\nTamil:\n{k['ta']}\n\nEnglish:\n{k['en']}"
         await update.message.reply_text(msg)
         return
 
