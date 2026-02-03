@@ -3,7 +3,7 @@ import os
 import requests
 from telegram.ext import ApplicationBuilder, MessageHandler, filters
 
-TOKEN = os.getenv("TOKEN")   # token is stored in Railway, not here
+TOKEN = os.getenv("TOKEN")
 
 DATA_FILE = "kurals.json"
 URL = "https://raw.githubusercontent.com/arravindhkumar/thirukkural/master/thirukkural.json"
@@ -16,16 +16,14 @@ if not os.path.exists(DATA_FILE):
         f.write(r.content)
 
 with open(DATA_FILE, "r", encoding="utf-8") as f:
-    data = json.load(f)
-
-kurals = {str(k["Number"]): k for k in data}
+    kurals = json.load(f)   # <-- no conversion
 
 async def reply(update, context):
     text = update.message.text.strip()
 
     if text in kurals:
         k = kurals[text]
-        msg = f"Kural {text}\n\nTamil:\n{k['Line1']} {k['Line2']}\n\nEnglish:\n{k['Translation']}"
+        msg = f"Kural {text}\n\nTamil:\n{k['ta']}\n\nEnglish:\n{k['en']}"
         await update.message.reply_text(msg)
     else:
         await update.message.reply_text("Send a number between 1 and 1330")
