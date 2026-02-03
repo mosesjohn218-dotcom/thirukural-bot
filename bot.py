@@ -16,14 +16,17 @@ if not os.path.exists(DATA_FILE):
         f.write(r.content)
 
 with open(DATA_FILE, "r", encoding="utf-8") as f:
-    kurals = json.load(f)
+    data = json.load(f)
+
+# Convert list → dictionary by number
+kurals = {str(k["Number"]): k for k in data}
 
 async def reply(update, context):
     text = update.message.text.strip()
 
     if text in kurals:
         k = kurals[text]
-        msg = f"Kural {text}\n\nTamil:\n{k['ta']}\n\nEnglish:\n{k['en']}"
+        msg = f"Kural {text}\n\nTamil:\n{k['Line1']} {k['Line2']}\n\nEnglish:\n{k['Translation']}"
         await update.message.reply_text(msg)
         return
 
