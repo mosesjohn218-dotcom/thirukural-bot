@@ -21,14 +21,11 @@ with open(DATA_FILE, "r", encoding="utf-8") as f:
 async def reply(update, context):
     text = update.message.text.strip()
 
-    if text.isdigit():
-        key = text.zfill(3)  # 4 → 004
-
-        if key in kurals:
-            k = kurals[key]
-            msg = f"Kural {text}\n\nTamil:\n{k['ta']}\n\nEnglish:\n{k['en']}"
-            await update.message.reply_text(msg)
-            return
+    if text in kurals:
+        k = kurals[text]
+        msg = f"Kural {text}\n\nTamil:\n{k['ta']}\n\nEnglish:\n{k['en']}"
+        await update.message.reply_text(msg)
+        return
 
     await update.message.reply_text("Send a number between 1 and 1330")
 
