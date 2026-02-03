@@ -1,0 +1,38 @@
+name: Build Kurals Dataset
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate dataset
+        run: |
+          python3 << 'EOF'
+          import requests, json
+
+          API = "https://api-thirukkural.vercel.app/api?num="
+          kurals = {}
+
+          for i in range(1, 1331):
+              r = requests.get(API + str(i)).json()
+              kurals[str(i)] = {
+                  "ta": r["line1"] + " " + r["line2"],
+                  "en": r["trans"]
+              }
+
+          with open("kurals.json", "w", encoding="utf-8") as f:
+              json.dump(kurals, f, ensure_ascii=False)
+          EOF
+
+      - name: Commit dataset
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add kurals.json
+          git commit -m "Auto generated kurals dataset"
+          git push
