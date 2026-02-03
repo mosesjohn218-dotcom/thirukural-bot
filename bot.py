@@ -6,22 +6,14 @@ from telegram.ext import ApplicationBuilder, MessageHandler, filters
 TOKEN = os.getenv("TOKEN")
 
 DATA_FILE = "kurals.json"
-API = "https://api-thirukkural.vercel.app/api?num="
+URL = "https://raw.githubusercontent.com/kalviumcommunity/thirukkural-dataset/main/kurals.json"
 
-# Build local dataset once
+# Download dataset once
 if not os.path.exists(DATA_FILE):
-    print("Downloading all kurals...")
-    kurals = {}
-
-    for i in range(1, 1331):
-        r = requests.get(API + str(i)).json()
-        kurals[str(i)] = {
-            "ta": r["line1"] + " " + r["line2"],
-            "en": r["trans"]
-        }
-
-    with open(DATA_FILE, "w", encoding="utf-8") as f:
-        json.dump(kurals, f, ensure_ascii=False)
+    print("Downloading kurals...")
+    r = requests.get(URL)
+    with open(DATA_FILE, "wb") as f:
+        f.write(r.content)
 
 with open(DATA_FILE, "r", encoding="utf-8") as f:
     kurals = json.load(f)
@@ -31,7 +23,7 @@ async def reply(update, context):
 
     if text in kurals:
         k = kurals[text]
-        msg = f"Kural {text}\n\nTamil:\n{k['ta']}\n\nEnglish:\n{k['en']}"
+        msg = f"Kural {text}\n\nTamil:\n{k['tamil']}\n\nEnglish:\n{k['english']}"
         await update.message.reply_text(msg)
         return
 
