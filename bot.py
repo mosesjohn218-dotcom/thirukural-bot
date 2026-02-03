@@ -1,12 +1,23 @@
 import json
+import os
 import requests
 from telegram.ext import ApplicationBuilder, MessageHandler, filters
 
-TOKEN = "8263308419:AAFDuAkJ7PB6WNosUJb-ogshnkHc3_uW0B4"
+TOKEN = "YOUR_TOKEN_HERE"
 
-URL = "https://raw.githubusercontent.com/captn3m0/thirukkural/master/thirukkural.json"
+DATA_FILE = "kurals.json"
+URL = "https://raw.githubusercontent.com/arravindhkumar/thirukkural/master/thirukkural.json"
 
-data = requests.get(URL).json()
+# Download dataset once
+if not os.path.exists(DATA_FILE):
+    print("Downloading kurals...")
+    r = requests.get(URL)
+    with open(DATA_FILE, "wb") as f:
+        f.write(r.content)
+
+with open(DATA_FILE, "r", encoding="utf-8") as f:
+    data = json.load(f)
+
 kurals = {str(k["Number"]): k for k in data}
 
 async def reply(update, context):
