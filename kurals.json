@@ -1,7 +1,22 @@
 {
-  "1": {"ta": "அகர முதல எழுத்தெல்லாம் ஆதி", "en": "A is first of all letters"},
-  "2": {"ta": "கற்றதனால் ஆய பயனென்கொல்", "en": "What use is learning"},
-  "3": {"ta": "மலர்மிசை ஏகினான் மாணடி", "en": "Those who reach God"},
-  "4": {"ta": "வேண்டுதல் வேண்டாமை", "en": "Freedom from desire"},
-  "5": {"ta": "இருள்சேர் இருவினையும்", "en": "Dark deeds vanish"}
+  "1": {
+    "ta": "அகர முதல எழுத்தெல்லாம் ஆதி பகவன் முதற்றே உலகு",
+    "en": "As the letter A is the first of all letters, so the eternal God is first in the world"
+  },
+  "2": {
+    "ta": "கற்றதனால் ஆய பயனென்கொல் வாலறிவன் நற்றாள் தொழாஅர் எனின்",
+    "en": "What use is learning if one does not worship wisdom"
+  },
+  "3": {
+    "ta": "மலர்மிசை ஏகினான் மாணடி சேர்ந்தார் நிலமிசை நீடுவாழ் வார்",
+    "en": "Those who reach the feet of God live long"
+  },
+  "4": {
+    "ta": "வேண்டுதல் வேண்டாமை இலானடி சேர்ந்தார்க்கு யாண்டும் இடும்பை இல",
+    "en": "Those who seek the feet of the desireless one have no suffering"
+  },
+  "5": {
+    "ta": "இருள்சேர் இருவினையும் சேரா இறைவன் பொருள்சேர் புகழ்புரிந்தார் மாட்டு",
+    "en": "Dark karma does not cling to those who praise God"
+  }
 }
