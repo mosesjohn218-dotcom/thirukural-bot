@@ -3,7 +3,7 @@ import os
 import requests
 from telegram.ext import ApplicationBuilder, MessageHandler, filters
 
-TOKEN = "YOUR_TOKEN_HERE"
+TOKEN = os.getenv("TOKEN")   # token is stored in Railway, not here
 
 DATA_FILE = "kurals.json"
 URL = "https://raw.githubusercontent.com/arravindhkumar/thirukkural/master/thirukkural.json"
