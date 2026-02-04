@@ -1,81 +1,82 @@
-,
-"21": {
-  "ta": "ஒழுக்கம் விழுப்பம் தரலான் ஒழுக்கம் உயிரினும் ஓம்பப் படும்",
-  "en": "Conduct gives greatness; therefore guard conduct more than life."
-},
-"22": {
-  "ta": "பரிந்தோம்பிக் காக்க ஒழுக்கம் தெரிந்தோம்பித் தேரினும் அஃதே துணை",
-  "en": "Guard conduct carefully; it is the best companion."
-},
-"23": {
-  "ta": "ஒழுக்கம் உடைமை குடிமை இழுக்கம் இழிந்த பிறப்பாய் விடும்",
-  "en": "Conduct makes nobility; misconduct leads to low birth."
-},
-"24": {
-  "ta": "மறப்பினும் ஓத்துக் கொளலாகும் பார்ப்பான் பிறப்பொழுக்கம் குன்றக் கெடும்",
-  "en": "Even if learning fades, noble conduct must not fail."
-},
-"25": {
-  "ta": "அழுக்காறு அவாவெகுளி இன்னாச்சொல் நான்கும் இழுக்கா இயன்றது அறம்",
-  "en": "Avoid envy, greed, anger, and hurtful speech — that is virtue."
-},
-"26": {
-  "ta": "அறத்தொடு நடுவுவேண்டும் ஆயினும் பிறத்தொடு பிறவாது ஒழுக்கு",
-  "en": "True conduct stands with justice and virtue."
-},
-"27": {
-  "ta": "ஒழுக்கம் விழுப்பந் தரலான் ஒழுக்கம் உடைமை உயர்ந்த குடி",
-  "en": "Conduct gives honor; it marks a noble life."
-},
-"28": {
-  "ta": "நன்றிக்கு வித்தாகும் நல்லொழுக்கு தீயொழுக்கு என்றும் இடும்பை தரும்",
-  "en": "Good conduct brings goodness; bad conduct brings sorrow."
-},
-"29": {
-  "ta": "ஒழுக்கம் உடைவர்க்கு ஒல்லாவே தீய வழுக்கியும் வாயாற் சொலல்",
-  "en": "Those with conduct never speak harmful words."
-},
-"30": {
-  "ta": "உலகத்தோடு ஒட்ட ஒழுகல் பலகற்றும் கல்லார் அறிவிலா தார்",
-  "en": "Those who fail to live in harmony lack true learning."
-},
-"31": {
-  "ta": "கற்றதனால் ஆய பயனென்கொல் வாலறிவன் நற்றாள் தொழாஅர் எனின்",
-  "en": "Learning is useless without reverence to wisdom."
-},
-"32": {
-  "ta": "எண்ணென்ப ஏனை எழுத்தென்ப இவ்விரண்டும் கண்ணென்ப வாழும் உயிர்க்கு",
-  "en": "Numbers and letters are the eyes of living beings."
-},
-"33": {
-  "ta": "கண்ணுடையர் என்பவர் கற்றோர் முகத்திரண்டு புண்ணுடையர் கல்லா தவர்",
-  "en": "The learned have eyes; the unlearned have wounds."
-},
-"34": {
-  "ta": "உவப்பத் தலைக்கூடி உள்ளப் பிரிதல் அனைத்தே புலவர் தொழில்",
-  "en": "Meeting with joy and parting with thought is the scholar’s way."
-},
-"35": {
-  "ta": "தொட்டனைத் தூறும் மணற்கேணி மாந்தர்க்குக் கற்றனைத் தூறும் அறிவு",
-  "en": "Knowledge flows like water from a well."
-},
-"36": {
-  "ta": "யாதானும் நாடாமால் ஊராமால் என்னொருவன் சாந்துணையும் கல்லாத வாறு",
-  "en": "Without learning, a man is lost wherever he goes."
-},
-"37": {
-  "ta": "கேடில் விழுச்செல்வம் கல்வி ஒருவற்கு மாடல்ல மற்றை யவை",
-  "en": "Learning is wealth no thief can steal."
-},
-"38": {
-  "ta": "ஒருமைக்கண் தான்கற்ற கல்வி ஒருவற்கு எழுமையும் ஏமாப் புடைத்து",
-  "en": "Learning gained once benefits across lives."
-},
-"39": {
-  "ta": "தாமின் புறுவது உலகின் புறக்கண்டு காமுறுவர் கற்றறிந்தார்",
-  "en": "The learned see beyond the world’s surface."
-},
-"40": {
-  "ta": "கேடில் விழுச்செல்வம் கல்வி ஒருவற்கு மாடல்ல மற்றை யவை",
-  "en": "Education is the highest wealth."
+{
+  "1": {
+    "ta": "அகர முதல எழுத்தெல்லாம் ஆதி பகவன் முதற்றே உலகு",
+    "en": "As the letter A is the first of all letters, so the eternal God is first in the world."
+  },
+  "2": {
+    "ta": "கற்றதனால் ஆய பயனென்கொல் வாலறிவன் நற்றாள் தொழாஅர் எனின்",
+    "en": "What use is learning if one does not worship the feet of the One of perfect wisdom?"
+  },
+  "3": {
+    "ta": "மலர்மிசை ஏகினான் மாணடி சேர்ந்தார் நிலமிசை நீடுவாழ் வார்",
+    "en": "Those who reach the feet of God live long upon earth."
+  },
+  "4": {
+    "ta": "வேண்டுதல் வேண்டாமை இலானடி சேர்ந்தார்க்கு யாண்டும் இடும்பை இல",
+    "en": "To those who reach the feet of the One beyond desire, there is no suffering at any time."
+  },
+  "5": {
+    "ta": "இருள்சேர் இருவினையும் சேரா இறைவன் பொருள்சேர் புகழ்புரிந்தார் மாட்டு",
+    "en": "The twin deeds of darkness do not cling to those who praise God."
+  },
+  "6": {
+    "ta": "பொறிவாயில் ஐந்தவித்தான் பொய்தீர் ஒழுக்க நெறிநின்றார் நீடுவாழ் வார்",
+    "en": "They who stand in pure conduct live long, freed from falsehood."
+  },
+  "7": {
+    "ta": "தனக்குவமை இல்லாதான் தாள்சேர்ந்தார்க் கல்லால் மனக்கவலை மாற்றல் அரிது",
+    "en": "Except those who cling to God’s feet, none can escape mental sorrow."
+  },
+  "8": {
+    "ta": "அறவாழி அந்தணன் தாள்சேர்ந்தார்க் கல்லால் பிறவாழி நீந்தல் அரிது",
+    "en": "Only those who reach God’s feet can cross the ocean of birth."
+  },
+  "9": {
+    "ta": "கோளில் பொறியில குணமிலவே எண்குணத்தான் தாளை வணங்காத் தலை",
+    "en": "The head that does not bow to God lacks virtue and worth."
+  },
+  "10": {
+    "ta": "பிறவிப் பெருங்கடல் நீந்துவர் நீந்தார் இறைவன் அடிசேரா தார்",
+    "en": "Only those who reach God’s feet cross the ocean of birth."
+  },
+  "11": {
+    "ta": "வான்நின்று உலகம் வழங்கி வருதலால் தான் அமுதம் என்றுணரற் பாற்று",
+    "en": "Rain sustains the world; it is nectar to all beings."
+  },
+  "12": {
+    "ta": "துப்பார்க்குத் துப்பாய துப்பாக்கித் துப்பார்க்குத் துப்பாய தூஉம் மழை",
+    "en": "Rain gives food to the eater and itself becomes food."
+  },
+  "13": {
+    "ta": "விண்இன்று பொய்ப்பின் விரிநீர் வியனுலகம் திண்இன்று தானே கெடும்",
+    "en": "If the heavens withhold rain, the world itself will perish."
+  },
+  "14": {
+    "ta": "ஏரின் உழாஅர் உழவர் புயலென்னும் வாரி வளங்குன்றிக் காலம்",
+    "en": "Without rain, farmers cannot plough their fields."
+  },
+  "15": {
+    "ta": "கெடுப்பதூஉம் கெட்டார்க்குச் சார்வாய்மற் றாங்கே எடுப்பதூஉம் எல்லாம் மழை",
+    "en": "Rain ruins and restores; it is the source of all prosperity."
+  },
+  "16": {
+    "ta": "விசும்பின் துளிவீழின் அல்லால் மற் றாங்கே பசும்புல் தலைகாண் பரிது",
+    "en": "Without rain, even grass cannot grow."
+  },
+  "17": {
+    "ta": "நெடுங்கடலும் தன்நீர்மை குன்றும் தடிந்தெழிலி தான்நல்கா தாகி விடின்",
+    "en": "If rain fails, even the vast ocean loses its nature."
+  },
+  "18": {
+    "ta": "சிறப்பொடு பூசனை செல்லாது வானம் வறக்குமேல் வானோர்க்கும் ஈண்டு",
+    "en": "If rain fails, worship and offerings cease."
+  },
+  "19": {
+    "ta": "தானம் தவமிரண்டும் தங்கா வியனுலகம் வானம் வழங்கா தெனின்",
+    "en": "Without rain, charity and penance cannot exist."
+  },
+  "20": {
+    "ta": "நீரின்றி அமையாது உலகெனின் யார்யார்க்கும் வானின்றி அமையாது ஒழுக்கு",
+    "en": "If water is essential to life, rain is essential to order."
+  }
 }
