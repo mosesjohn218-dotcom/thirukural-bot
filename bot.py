@@ -1,22 +1,38 @@
-import json
 import os
+import requests
+from bs4 import BeautifulSoup
 from telegram import Update
 from telegram.ext import ApplicationBuilder, MessageHandler, filters, ContextTypes
 
 TOKEN = os.getenv("TOKEN")
 
-with open("kurals.json", encoding="utf-8") as f:
-    kurals = json.load(f)
-
 async def reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = update.message.text.strip()
 
-    if text in kurals:
-        k = kurals[text]
-        msg = f"Kural {text}\n\nTamil:\n{k['ta']}\n\nEnglish:\n{k['en']}"
-        await update.message.reply_text(msg)
-    else:
+    if not text.isdigit():
         await update.message.reply_text("Send a number between 1 and 1330")
+        return
+
+    num = int(text)
+
+    if num < 1 or num > 1330:
+        await update.message.reply_text("Send a number between 1 and 1330")
+        return
+
+    url = f"https://www.thirukural.ai/kural/{num}"
+
+    try:
+        r = requests.get(url, timeout=10)
+        soup = BeautifulSoup(r.text, "html.parser")
+
+        tamil = soup.find("div", class_="kural-tamil").get_text(strip=True)
+        english = soup.find("div", class_="kural-english").get_text(strip=True)
+
+        msg = f"Kural {num}\n\nTamil:\n{tamil}\n\nEnglish:\n{english}"
+        await update.message.reply_text(msg)
+
+    except Exception as e:
+        await update.message.reply_text("Error fetching kural. Try again.")
 
 app = ApplicationBuilder().token(TOKEN).build()
 app.add_handler(MessageHandler(filters.TEXT, reply))
