@@ -25,13 +25,23 @@ async def reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
         r = requests.get(url, timeout=10)
         soup = BeautifulSoup(r.text, "html.parser")
 
-        tamil = soup.get_text().split("Tamil")[1].split("English")[0].strip()
-        english = soup.get_text().split("English")[1].strip()
+        page_text = soup.get_text("\n")
+
+        lines = [l.strip() for l in page_text.split("\n") if l.strip()]
+
+        tamil = ""
+        english = ""
+
+        for i, line in enumerate(lines):
+            if "Tamil" in line:
+                tamil = lines[i+1]
+            if "English" in line:
+                english = lines[i+1]
 
         msg = f"Kural {num}\n\nTamil:\n{tamil}\n\nEnglish:\n{english}"
         await update.message.reply_text(msg)
 
-    except:
+    except Exception as e:
         await update.message.reply_text("Error fetching kural. Try again.")
 
 app = ApplicationBuilder().token(TOKEN).build()
