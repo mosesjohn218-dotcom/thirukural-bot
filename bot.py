@@ -5,9 +5,12 @@ from telegram.ext import ApplicationBuilder, MessageHandler, filters, ContextTyp
 
 TOKEN = os.getenv("TOKEN")
 
-# load kurals database
+# load JSON
 with open("kurals.json", encoding="utf-8") as f:
-    kurals = json.load(f)
+    data = json.load(f)
+
+# convert list → dictionary for fast lookup
+kurals = {str(k["Number"]): k for k in data["kural"]}
 
 async def reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = update.message.text.strip()
@@ -24,8 +27,8 @@ async def reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     k = kurals[str(num)]
 
-    tamil = k["tamil"]
-    english = k["english"]
+    tamil = k["Line1"] + " " + k["Line2"]
+    english = k["explanation"]
 
     msg = f"Kural {num}\n\nTamil:\n{tamil}\n\nEnglish:\n{english}"
 
