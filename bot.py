@@ -8,7 +8,6 @@ TOKEN = os.getenv("TOKEN")
 with open("kurals.json", encoding="utf-8") as f:
     raw = json.load(f)
 
-# Build lookup: number → kural
 kurals = {}
 for k in raw["kural"]:
     num = str(k["Number"])
@@ -16,56 +15,64 @@ for k in raw["kural"]:
     english = k["Translation"]
     kurals[num] = {"ta": tamil, "en": english}
 
-# Chapter titles (Aṟattuppāl only for now — 1 to 38)
 chapters = {
-    1: ("கடவுள் வாழ்த்து", "Praise of God"),
+    1: ("கடவுள் வாழ்த்து", "The Praise of God"),
     2: ("வான் சிறப்பு", "The Excellence of Rain"),
     3: ("நீத்தார் பெருமை", "The Greatness of Ascetics"),
-    4: ("அறன் வலியுறுத்தல்", "The Power of Virtue"),
-    5: ("இல்வாழ்க்கை", "Domestic Life"),
-    6: ("வாழ்க்கைத்துணை நலம்", "The Worth of a Wife"),
-    7: ("மக்கட்பேறு", "The Blessing of Children"),
-    8: ("அன்புடைமை", "Possession of Love"),
+    4: ("அறன் வலியுறுத்தல்", "Assertion of Virtue"),
+    5: ("இல்வாழ்க்கை", "Household Life"),
+    6: ("வாழ்க்கைத் துணைநலம்", "Life Partner"),
+    7: ("புதல்வரைப் பெறுதல்", "Children"),
+    8: ("அன்புடைமை", "Love"),
     9: ("விருந்தோம்பல்", "Hospitality"),
     10: ("இனியவை கூறல்", "Sweet Words"),
     11: ("செய்ந்நன்றி அறிதல்", "Gratitude"),
     12: ("நடுவுநிலைமை", "Impartiality"),
-    13: ("அடக்கம் உடைமை", "Self-Control"),
-    14: ("ஒழுக்கம் உடைமை", "Good Conduct"),
-    15: ("பிறனில் விழையாமை", "Not Coveting Another's Wife"),
+    13: ("அடக்கமுடைமை", "Self-Restraint"),
+    14: ("ஒழுக்கமுடைமை", "Decorum"),
+    15: ("பிறனில் விழையாமை", "Not Coveting"),
     16: ("பொறையுடைமை", "Forbearance"),
-    17: ("அழுக்காறாமை", "Freedom from Envy"),
-    18: ("வெஃகாமை", "Freedom from Greed"),
-    19: ("புறங்கூறாமை", "Against Slander"),
-    20: ("பயனில சொல்லாமை", "Avoiding Useless Words"),
-    21: ("தீவினையச்சம்", "Fear of Evil Deeds"),
-    22: ("ஒப்புரவறிதல்", "Equity"),
+    17: ("அழுக்காறாமை", "No Envy"),
+    18: ("வெஃகாமை", "No Greed"),
+    19: ("புறங்கூறாமை", "No Backbiting"),
+    20: ("பயனில சொல்லாமை", "No Idle Talk"),
+    21: ("தீவினையச்சம்", "Fear of Evil"),
+    22: ("ஒப்புரவறிதல்", "Duty to Society"),
     23: ("ஈகை", "Charity"),
     24: ("புகழ்", "Fame"),
     25: ("அருளுடைமை", "Compassion"),
-    26: ("புலால் மறுத்தல்", "Abstinence from Flesh"),
+    26: ("புலால் மறுத்தல்", "No Flesh"),
     27: ("தவம்", "Penance"),
-    28: ("கூடா ஒழுக்கம்", "Hypocrisy"),
-    29: ("கள்ளாமை", "Truthfulness"),
-    30: ("வெகுளாமை", "Freedom from Anger"),
-    31: ("இன்னா செய்யாமை", "Non-violence"),
-    32: ("கொல்லாமை", "Not Killing"),
-    33: ("நிலையாமை", "Impermanence"),
-    34: ("துறவு", "Renunciation"),
-    35: ("மெய்யுணர்தல்", "Realization of Truth"),
-    36: ("அவா அறுத்தல்", "Curbing Desire"),
-    37: ("ஊழ்", "Fate"),
-    38: ("அறிவுடைமை", "Wisdom"),
+    28: ("கூடாவொழுக்கம்", "Hypocrisy"),
+    29: ("கள்ளாமை", "No Stealing"),
+    30: ("வாய்மை", "Truth"),
+    31: ("வெகுளாமை", "No Anger"),
+    32: ("இன்னா செய்யாமை", "Non-violence"),
+    33: ("கொல்லாமை", "Non-killing"),
+    34: ("நிலையாமை", "Impermanence"),
+    35: ("துறவு", "Renunciation"),
+    36: ("மெய்யுணர்தல்", "Truth Realization"),
+    37: ("அவாவறுத்தல்", "Ending Desire"),
+    38: ("ஊழ்", "Fate"),
 }
 
+def get_section(ch):
+    if 1 <= ch <= 4:
+        return "I. Payiraviyal (Preface)"
+    elif 5 <= ch <= 24:
+        return "II. Illaraiyal (Domestic Virtue)"
+    elif 25 <= ch <= 37:
+        return "III. Thuravaraiyal (Ascetic Virtue)"
+    elif ch == 38:
+        return "IV. Oozhiyal (Fate)"
+    return None
+
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    msg = (
+    await update.message.reply_text(
         "📘 Thirukkural Bot\n\n"
-        "Send any number from 1–1330\n"
-        "and receive the kural instantly.\n\n"
-        "Simple • Fast • Beautiful ✨"
+        "Send a number 1–1330\n"
+        "and explore timeless wisdom ✨"
     )
-    await update.message.reply_text(msg)
 
 async def reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = update.message.text.strip()
@@ -74,22 +81,26 @@ async def reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("Send a number between 1 and 1330")
         return
 
-    num = int(text)
-    chapter = (num - 1) // 10 + 1
-
-    tamil_chap, eng_chap = chapters.get(chapter, ("", ""))
-
-    header = (
-        "📘 Aṟattuppāl (அறத்துப்பால்)\n"
-        "Book of Virtue\n\n"
-        f"Adigaram {chapter} (Chapter {chapter}) : "
-        f"{tamil_chap} ({eng_chap})\n\n"
-    )
-
+    n = int(text)
     k = kurals[text]
 
-    msg = (
-        header +
+    msg = ""
+
+    # Only show Book I info if inside 1–380
+    if 1 <= n <= 380:
+        chapter = (n - 1) // 10 + 1
+        section = get_section(chapter)
+        t, e = chapters[chapter]
+
+        msg += (
+            "📘 Aṟattuppāl (அறத்துப்பால்)\n"
+            "Book I – Virtue\n\n"
+            f"{section}\n\n"
+            f"Adigaram {chapter}:\n"
+            f"{t}\n{e}\n\n"
+        )
+
+    msg += (
         f"📖 Kural {text}\n\n"
         f"🇮🇳 {k['ta']}\n\n"
         f"🌍 {k['en']}"
