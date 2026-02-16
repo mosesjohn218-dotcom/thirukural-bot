@@ -133,12 +133,13 @@ chapters = {
 
 def get_book(n):
     if 1 <= n <= 380:
-        return "📘 Aṟattuppāl (Book I – Virtue)"
+        return "Book I 📘 அறத்துப்பால் (Virtue)"
     elif 381 <= n <= 1080:
-        return "📗 Poruḷ (Book II – Wealth / Politics)"
+        return "Book II 📗 பொருள் (Wealth / Politics)"
     elif 1081 <= n <= 1330:
-        return "📙 Inbam (Book III – Love)"
+        return "Book III 📙 இன்பம் (Love)"
     return ""
+
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
