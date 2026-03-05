@@ -88,12 +88,20 @@ async def reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
     except Exception as e:
         print("Audio error:", e)
 
+
 # --------------------------
 # Run bot
 # --------------------------
-app = ApplicationBuilder().token(TOKEN).build()
+def main():
+    print("✅ Thirukkural Bot is starting...")
 
-app.add_handler(CommandHandler("start", start))
-app.add_handler(MessageHandler(filters.TEXT, reply))
+    app = ApplicationBuilder().token(TOKEN).build()
 
-app.run_polling()
+    app.add_handler(CommandHandler("start", start))
+    app.add_handler(MessageHandler(filters.TEXT, reply))
+
+    app.run_polling()
+
+
+if __name__ == "__main__":
+    main()
